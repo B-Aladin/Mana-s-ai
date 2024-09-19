@@ -9,6 +9,11 @@ app = Flask(__name__)
 # Load the trained model
 model = joblib.load('solar_power_model.pkl')
 
+# Define a home route to handle root URL
+@app.route('/')
+def home():
+    return "Solar Power Prediction API is running!"
+
 # Define a route for predictions
 @app.route('/predict', methods=['POST'])
 def predict():
